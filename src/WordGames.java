@@ -11,11 +11,17 @@
  */
 
 import java.util.Scanner;
+//import java.io.*;
 
 public class WordGames {
 	
 	public static Scanner sc = new Scanner(System.in);
 	public static String anotherGame = "";
+	
+	
+	// Declare a constant for dictionary.txt file
+	public static final String DICTIONARY = "dictionary.txt"; 
+
 
 	// Method for Selection Menu 
 	public static void getSelection() {
@@ -35,7 +41,7 @@ public class WordGames {
 		System.out.println("Enter your selection: ");
 		
 		userSelection = sc.nextInt();
-//		System.out.println("Your selcetion was: " + userSelection);
+//		System.out.println("Your selection was: " + userSelection);
 		
 		switch(userSelection) {
 		case 1:
@@ -69,13 +75,76 @@ public class WordGames {
 	
 	public static void pointsProblem() {
 		System.out.println("POINTS PROBLEM");
+
+		// Declare selected word variables.
+		String selectedWord;
+		int wordScore = 0;
+		
+		// Read word and assign it to a variable in order to evaluate each letters point value.
+		selectedWord = sc.next();
+		char[] wordArr = selectedWord.toCharArray();
+		
+		// Determine how much each letter is worth.
+		for (int i=0;i<wordArr.length;i++) {
+			
+			// 1 Point Letters
+			if(wordArr[i] == 'a'|| wordArr[i] == 'e' || wordArr[i] == 'i'){
+				wordScore++;
+			}
+			else if (wordArr[i] == 'l'|| wordArr[i] == 'n' || wordArr[i] == 'o') {
+				wordScore++;
+			} 
+			else if (wordArr[i] == 'r'|| wordArr[i] == 's' || wordArr[i] == 't') {
+				wordScore++;
+			}
+			else if (wordArr[i] == 'u') {
+				wordScore++;
+			}
+			// 2 Point Letters
+			else if (wordArr[i] == 'd'|| wordArr[i] == 'g') {
+				wordScore += 2;
+			}
+			// 3 Point Letters
+			else if (wordArr[i] == 'b'|| wordArr[i] == 'c') {
+				wordScore += 3;
+			}
+			else if (wordArr[i] == 'm'|| wordArr[i] == 'p') {
+				wordScore += 3;
+			}
+			// 4 Point Letters
+			else if (wordArr[i] == 'f'|| wordArr[i] == 'h') {
+				wordScore += 4;
+			}
+			else if (wordArr[i] == 'v'|| wordArr[i] == 'w' || wordArr[i] == 'y') {
+				wordScore += 4;
+			}
+			//5  Point Letters
+			else if (wordArr[i] == 'k') {
+				wordScore += 5;
+			}
+			// 8 Point Letters
+			else if (wordArr[i] == 'j' || wordArr[i] == 'x') {
+				wordScore += 8;
+			}
+			// 10 Point Letters
+			else if (wordArr[i] == 'q' || wordArr[i] == 'z') {
+				wordScore += 10;
+			}
+			
+		}
+		
+		// Print final word score
+		System.out.println("Your entered word was: " + selectedWord);
+		System.out.println("Score: " + wordScore);
+		System.out.println();
+		
+		//System.out.println(wordArr.length);
 		System.out.println("Do you wish to select another game? (y/n)");
 		anotherGame = sc.next();
 		
 		if (anotherGame.equals("y")) {
 			getSelection();
 		}
-
 	}
 	
 	public static void palindromeProblem() {
@@ -88,15 +157,12 @@ public class WordGames {
 		}
 	}
 
-
-	
 	// Represents the game method runner.
 	public static void main(String[] args) {
 		
 		getSelection();
-		
-		
-	
+//		pointsProblem();
+
 	}
 
 }
