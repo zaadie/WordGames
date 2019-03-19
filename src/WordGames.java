@@ -17,6 +17,7 @@ public class WordGames {
 	
 	public static Scanner sc = new Scanner(System.in);
 	public static String anotherGame = "";
+	public static String subString = "";
 	
 	
 	// Declare a constant for dictionary.txt file
@@ -63,6 +64,21 @@ public class WordGames {
 	
 	public static void substringProblem() {
 		System.out.println("SUBSTRING PROBLEM");
+		System.out.println("Enter a substring: ");
+		subString = sc.next();
+		
+		// Read each word and check if is prefix, infix , suffix or not found
+		//...
+		// A switch statement that analyses:
+		// Prefix at index 0
+		// Infix at index 1 - word.length() - 1;
+		// Suffix at index word.length
+		// If suffix doesn't match anything then - not found
+		// Print word out with out come
+		// NOTE watch out for double ups e.g. tattarrattat as a infix multiple
+		// times. Avoid this by setting the reading the index and setting to see if the
+		// infix state is 'true'
+		
 		System.out.println("Do you wish to select another game? (y/n)");
 		anotherGame = sc.next();
 		
