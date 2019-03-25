@@ -32,7 +32,6 @@ public class Word_Games  {
  		
  		// Declare variable for program selection.
  		String userSelection = "";
- 		 		
  		
  		System.out.printf("%n");
  		System.out.printf("%n");
@@ -44,7 +43,7 @@ public class Word_Games  {
  		System.out.println("2. Points problem.");
  		System.out.println("3. Palindrome problem.");
  		System.out.println("4. Exit.");
- 		System.out.println("Enter your selection: ");
+ 		System.out.print("Enter your selection: ");
  		
  		userSelection = sc.nextLine();
  		
@@ -59,21 +58,24 @@ public class Word_Games  {
  			palindromeProblem();
  			break;
  		case "4":
- 			System.out.println("EXIT");
+ 			System.out.println();
+ 			System.out.println("Goodbye!");
  			break;
  		default:
- 			System.out.println("Incorrect Input");
+ 			System.out.println();
+ 			System.out.println("Invalid option. Try again.");
+ 			getSelection();
  			break;
  		}
  	}
  	
  	// PROBLEM 1
  	public static void substringProblem() {
- 		
+ 		System.out.println();
  		System.out.println("Substring problem.");
  		
  		// Ask for users substring
- 		System.out.println("Enter a substring: ");
+ 		System.out.print("Enter a substring: ");
  		String subString = sc.nextLine();
  		String s = "";
  		if(subString.length() > 0) {
@@ -113,13 +115,8 @@ public class Word_Games  {
             		}
             		
             		System.out.println(String.join(" - ", result));   
-            		
-
             }   
-            }
-
-
-
+           }
             // Always close files.
             bufferedReader.close();         
         }
@@ -141,6 +138,7 @@ public class Word_Games  {
  	
  	// PROBLEM 2
  	public static void pointsProblem() {
+ 		System.out.println();
  		System.out.println("Points problem.");
  	    try {
             // FileReader reads text files in the default encoding.
@@ -199,8 +197,8 @@ public class Word_Games  {
  	}
  	
  // PROBLEM 3
- 	public static void palindromeProblem()
- 	{
+ 	public static void palindromeProblem(){	
+ 		System.out.println();
  		System.out.println("Palindrome problem.");
  	    try {
             // FileReader reads text files in the default encoding.
@@ -278,7 +276,7 @@ public class Word_Games  {
 			System.out.printf("%s is not a palindrome.%n", line);
 		}
  	}
-	
+ 	
     public static void main(String [] args) {
     		 getSelection();
     }
